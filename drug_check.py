@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/check_drug_formation', methods=['POST'])
 def check_drug_formation():
     data = json.loads(request.data)
-    loaded_model = pickle.load(open('finalized_model.pkl', 'rb'))
+    loaded_model = pickle.load(open('finalized_model_drugC.pkl', 'rb'))
     dp = np.array(list(data.values())).reshape(1,-1)
     result = loaded_model.predict(dp)
     # result=1
